@@ -1,31 +1,7 @@
-'use client'  // For Next.js with Client Components
+'use client';
 
+import Link from 'next/link';  // Import Link for routing
 import React from 'react';
-
-// Mock podcast data
-const trendingPodcasts = [
-  {
-    id: 1,
-    title: 'The Tech Talk',
-    host: 'John Doe',
-    description: 'Latest trends and insights in technology.',
-    image: '/images/tech-talk.jpg', // Add corresponding images to your public folder
-  },
-  {
-    id: 2,
-    title: 'Mind Matters',
-    host: 'Jane Smith',
-    description: 'Exploring mental health and mindfulness.',
-    image: '/images/mind-matters.jpg',
-  },
-  {
-    id: 3,
-    title: 'History Untold',
-    host: 'Mark Twain',
-    description: 'Stories of untold historical events.',
-    image: '/images/history-untold.jpg',
-  },
-];
 
 const Home = () => {
   return (
@@ -38,24 +14,22 @@ const Home = () => {
         </p>
       </section>
 
+      {/* Navigation Buttons */}
+      <div className='flex gap-4 mb-6'>
+        <Link href="/podcasts">
+          <button className='px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700'>
+            View All Podcasts
+          </button>
+        </Link>
+        <Link href="/about">
+          <button className='px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700'>
+            About Us
+          </button>
+        </Link>
+      </div>
+
       {/* Podcast Listing */}
-      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-        {trendingPodcasts.map((podcast) => (
-          <div
-            key={podcast.id}
-            className='bg-gray-800 rounded-lg overflow-hidden shadow-md p-5 flex flex-col items-center'
-          >
-            <img
-              src={podcast.image}
-              alt={podcast.title}
-              className='w-full h-48 object-cover rounded-md'
-            />
-            <h2 className='mt-4 text-xl font-semibold text-white-1'>{podcast.title}</h2>
-            <p className='text-gray-400 text-sm mt-1'>Hosted by {podcast.host}</p>
-            <p className='text-gray-300 text-sm mt-3 text-center'>{podcast.description}</p>
-          </div>
-        ))}
-      </section>
+      {/* Your existing trendingPodcasts section here */}
     </div>
   );
 };
